@@ -33,6 +33,10 @@ class UserController {
         UserModel.update(data, res);
     }
 
+    static delete(req, res) {
+        UserModel.delete(req.body, res);
+    }
+
 }
 
 module.exports = UserController;

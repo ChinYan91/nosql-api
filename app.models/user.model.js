@@ -2,7 +2,7 @@ const { generateToken } = require("../util/crypto");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-userSchema = new Schema({
+const userSchema = new Schema({
     firstname: {
         type: String,
         require: true
@@ -80,9 +80,14 @@ class UserModel {
         });
     }
 
+    static delete(data, res) {
+        User.deleteOne(data, res).then(
+            result => res.status(200).json({ error: 0, data: result, result: "Pet deleted" })
+        ).catch(
+            error => res.status(500).json({ error: 1, data: error, result: "Pet deletes failed" })
+        );
+    }
+
 }
 
 module.exports = UserModel;
-
-
-module.export = UserModel;

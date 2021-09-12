@@ -8,7 +8,7 @@ const http = require('http');
 
 const indexRouter = require('./app.routes/index.routes');
 const usersRouter = require('./app.routes/users.routes');
-const postRouter = require('./app.routes/post.routes');
+const petRouter = require('./app.routes/pet.routes');
 
 const app = express();
 
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/posts', postRouter);
+app.use('/pets', petRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
